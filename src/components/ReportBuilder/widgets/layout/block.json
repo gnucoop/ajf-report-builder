@@ -1,0 +1,9 @@
+{
+	"name": "ajf/layout",
+	"category": "layout",
+	"attributes": {
+		"columns": {
+			"type": "number"
+		}
+	}
+}
