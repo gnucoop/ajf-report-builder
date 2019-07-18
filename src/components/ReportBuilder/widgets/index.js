@@ -6,11 +6,13 @@ import {
 
 import * as column from './column';
 import * as layout from './layout';
+import * as pageBreak from './pageBreak';
 
 export const registerWidgetsLibrary = () => {
 	[
 		column,
-		layout
+		layout,
+		pageBreak
 	].forEach( ( block ) => {
 		if ( ! block ) {
 			return;

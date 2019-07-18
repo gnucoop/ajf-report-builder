@@ -15,11 +15,20 @@ export default function LayoutEdit({
 	const allowedBlocks = ['ajf/column'];
 
 	return (
-		<div className="ajf-layout">
-			<InnerBlocks
-				allowedBlocks={allowedBlocks}
-				template={[['ajf/column'], ['ajf/column']]}
-			/>
-		</div>
+		<>
+			<InspectorControls>
+				<PanelBody>
+					<PanelRow>
+						<label>Miao</label>
+					</PanelRow>
+				</PanelBody>
+			</InspectorControls>
+			<div className="ajf-layout">
+				<InnerBlocks
+					allowedBlocks={allowedBlocks}
+					template={[['ajf/column'], ['ajf/column']]}
+				/>
+			</div>
+		</>
 	);
 }
