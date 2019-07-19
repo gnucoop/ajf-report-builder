@@ -1,3 +1,11 @@
+/**
+ * WordPress dependencies
+ */
+import { __ } from '@wordpress/i18n';
+
+/**
+ * Internal dependencies
+ */
 import icon from './icon';
 import metadata from './block.json';
 import edit from './edit';
@@ -8,9 +16,15 @@ const name = 'ajf/column';
 export { metadata, name };
 
 export const settings = {
-	title: 'Column',
+	title: __( 'Column' ),
+	parent: [ 'core/columns' ],
 	icon,
-	description: 'Column',
+	description: __( 'A single column within a layout block.' ),
+	supports: {
+		inserter: false,
+		reusable: false,
+		html: false,
+	},
 	edit,
 	save,
 }

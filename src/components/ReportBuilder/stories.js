@@ -4,6 +4,8 @@ import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 
 import AjfReportBuilder from './ReportBuilder';
+import './report-builder.scss';
+import './widgets/editor.scss';
 
 storiesOf('AjfReportBuilder')
 	.add('base', () => {
@@ -22,7 +24,7 @@ storiesOf('AjfReportBuilder')
 
 			render() {
 				return (
-					<pre className="output">
+					<pre style={{height: '180px', 'overflow-y': 'auto'}} className="output">
 						{this.state.output}
 					</pre>
 				)
@@ -31,9 +33,11 @@ storiesOf('AjfReportBuilder')
 
 		return (
 			<div>
-				<AjfReportBuilder
-						onChange={val => updateOutput(JSON.stringify(JSON.parse(val), null, 2))}
-				/>
+				<div style={{height: 'calc(100vh - 220px)', overflow: 'hidden'}}>
+					<AjfReportBuilder
+							onChange={val => updateOutput(JSON.stringify(JSON.parse(val), null, 2))}
+					/>
+				</div>
 				<OutputComponent />
 			</div>
 		);

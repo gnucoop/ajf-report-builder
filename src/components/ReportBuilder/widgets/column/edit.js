@@ -2,8 +2,10 @@ import React from 'react';
 
 import { InnerBlocks, InspectorControls } from '@wordpress/block-editor';
 import { PanelBody, PanelRow, TextControl } from '@wordpress/components';
+import { compose } from '@wordpress/compose';
+import { withSelect } from '@wordpress/data';
 
-export default function ColumnEdit({
+export function ColumnEdit({
 	attributes,
 	setAttributes,
 	mergeBlocks,
@@ -12,16 +14,20 @@ export default function ColumnEdit({
 }) {
 	return (
 		<>
-			<InspectorControls>
-				<PanelBody>
-					<PanelRow>
-						<label>Miao</label>
-					</PanelRow>
-				</PanelBody>
-			</InspectorControls>
 			<div className="ajf-column">
 				column
 			</div>
 		</>
 	);
 }
+
+export default compose(
+	withSelect( ( select, ownProps ) => {
+		const { clientId } = ownProps;
+		const { getBlockOrder } = select( 'core/block-editor' );
+
+		return {
+			hasChildBlocks: getBlockOrder( clientId ).length > 0,
+		};
+	} ),
+)( ColumnEdit );;

@@ -1,11 +1,27 @@
 import React from 'react';
 
-import { BlockEditorProvider, BlockInspector, BlockList, ObserveTyping, WritingFlow } from '@wordpress/block-editor';
-import { registerCoreBlocks } from '@wordpress/block-library';
+import '@wordpress/editor';
+
+import {
+	BlockEditorProvider,
+	BlockInspector,
+	BlockList,
+	BlockNavigationDropdown,
+	Inserter,
+	NavigableToolbar,
+	ObserveTyping,
+	WritingFlow,
+} from '@wordpress/block-editor';
 import { serialize } from '@wordpress/blocks';
-import { DropZoneProvider, Panel, PanelBody, SlotFillProvider } from '@wordpress/components';
+import { DropZoneProvider, Panel, PanelBody, Popover, SlotFillProvider } from '@wordpress/components';
 import { compose } from '@wordpress/compose';
+import {
+	EditorHistoryRedo,
+	EditorHistoryUndo,
+} from '@wordpress/editor';
+import { __ } from '@wordpress/i18n';
 import { useState } from '@wordpress/element';
+import { DotTip } from '@wordpress/nux';
 
 import { xml2json } from 'xml-js';
 
@@ -16,8 +32,6 @@ import '@wordpress/block-editor/build-style/style.css';
 import '@wordpress/block-library/build-style/style.css';
 import '@wordpress/block-library/build-style/editor.css';
 import '@wordpress/block-library/build-style/theme.css';
-
-import './report-builder.css';
 
 
 function snakeToCamel(s){
@@ -75,41 +89,55 @@ class AjfReportBuilderCls extends React.Component {
 		}
 
 		return (
-			<div className="ajf-report-builder">
-				<Panel>
-					<PanelBody>
+			<Panel className="main-panel">
+				<PanelBody>
+					<SlotFillProvider>
 						<BlockEditorProvider
 								value={ blocks }
 								onInput={ updateBlocksWrapper }
 								onChange={ updateBlocksWrapper }
 						>
-							<div className="editor-styles-wrapper">
-								<WritingFlow>
-									<ObserveTyping>
-										<BlockList />
-									</ObserveTyping>
-								</WritingFlow>
+							<div className="ajf-report-builder">
+								<NavigableToolbar className="header-toolbar">
+									<Inserter />
+									<EditorHistoryUndo />
+									<EditorHistoryRedo />
+									<BlockNavigationDropdown />
+								</NavigableToolbar>
+								<div class="builder-content-wrapper">
+									<div
+										className="builder-content"
+										role="region"
+										/* translators: accessibility text for the content landmark region. */
+										aria-label={ __( 'Editor content' ) }
+										tabIndex="-1"
+									>
+										<WritingFlow>
+											<ObserveTyping>
+												<BlockList />
+											</ObserveTyping>
+										</WritingFlow>
+									</div>
+									<div className="sidebar">
+										<BlockInspector />
+									</div>
+								</div>
 							</div>
+							<Popover.Slot />
 						</BlockEditorProvider>
-					</PanelBody>
-				</Panel>
-				<Panel>
-					<PanelBody>
-						<BlockInspector />
-					</PanelBody>
-				</Panel>
-			</div>
+					</SlotFillProvider>
+				</PanelBody>
+			</Panel>
 		);
 	}
 }
+
+registerWidgetsLibrary();
 
 function AjfReportBuilder(props) {
 	const [ blocks, updateBlocks ] = useState( [] );
 
 	return new AjfReportBuilderCls({...props, blocks, updateBlocks}).render();
 }
-
-// registerCoreBlocks();
-registerWidgetsLibrary();
 
 export default AjfReportBuilder;

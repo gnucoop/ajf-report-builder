@@ -3,7 +3,8 @@
 	"category": "layout",
 	"attributes": {
 		"columns": {
-			"type": "number"
+			"type": "number",
+			"default": 2
 		}
 	}
 }

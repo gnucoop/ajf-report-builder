@@ -1,0 +1,62 @@
+@import '../../theme/mixins';
+@import '../../theme/variables';
+
+.main-panel {
+	height: calc(100vh - 32px);
+	position: relative;
+
+	.components-panel__body {
+		height: 100%;
+
+		.components-drop-zone__provider {
+			height: 100%;
+
+			.ajf-report-builder {
+				height: 100%;
+
+				.header-toolbar {
+					display: inline-flex;
+					align-items: center;
+
+					// Hide all action buttons except the inserter on mobile.
+					> .components-button {
+						display: none;
+
+						@include break-small() {
+							display: inline-flex;
+						}
+					}
+
+					// Hide table of contents and block navigation on mobile.
+					.block-editor-block-navigation,
+					.table-of-contents {
+						display: none;
+
+						@include break-small() {
+							display: flex;
+						}
+					}
+				}
+
+				.builder-content-wrapper {
+					height: calc(100% - 36px - 3em);
+					padding-top: 3em;
+					position: relative;
+
+					.builder-content {
+						position: relative;
+						height: 100%;
+						padding-right: 250px;
+					}
+
+					.sidebar {
+						position: absolute;
+						right: 0;
+						top: 0;
+						width: 250px;
+					}
+				}
+			}
+		}
+	}
+}
