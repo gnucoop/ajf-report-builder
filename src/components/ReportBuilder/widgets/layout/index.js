@@ -11,6 +11,9 @@ export const settings = {
 	title: 'Layout',
 	icon,
 	description: 'Layout',
+	supports: {
+		customClassName: false,
+	},
 	edit,
 	save,
 }
