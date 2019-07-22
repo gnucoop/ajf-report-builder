@@ -17,7 +17,7 @@ export function ColumnEdit({
 			<div className="ajf-column">
 				<InnerBlocks
 						templateLock={ false }
-						renderAppender={( () => <InnerBlocks.ButtonBlockAppender /> )}
+						renderAppender={ InnerBlocks.ButtonBlockAppender }
 				/>
 			</div>
 		</>

@@ -47,6 +47,13 @@
 						position: relative;
 						height: 100%;
 						padding-right: 250px;
+
+						.block-editor-button-block-appender {
+							padding: 5px;
+							> span {
+								display: none;
+							}
+						}
 					}
 
 					.sidebar {

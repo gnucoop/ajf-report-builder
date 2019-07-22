@@ -10,9 +10,5 @@ export default function PageBreakEdit({
 	onReplace,
 	className,
 }) {
-	return (
-		<>
-			page break! <hr />
-		</>
-	);
+	return <hr />;
 }
