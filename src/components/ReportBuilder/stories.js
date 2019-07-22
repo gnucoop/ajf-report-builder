@@ -3,7 +3,7 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 
-import AjfReportBuilder from './ReportBuilder';
+import AjfReportBuilder from './index';
 import './report-builder.scss';
 import './widgets/editor.scss';
 
@@ -24,7 +24,7 @@ storiesOf('AjfReportBuilder')
 
 			render() {
 				return (
-					<pre style={{height: '180px', 'overflow-y': 'auto'}} className="output">
+					<pre style={{height: '180px', 'overflowY': 'auto'}} className="output">
 						{this.state.output}
 					</pre>
 				)
