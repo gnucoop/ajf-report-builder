@@ -59,7 +59,9 @@ export function LayoutEdit( {
 	return (
 		<>
 			<InspectorControls>
-				<PanelBody>
+				<PanelBody
+					title={ __( 'Layout' ) }
+				>
 					<RangeControl
 						label={ __( 'Columns' ) }
 						value={ columns }
@@ -95,9 +97,6 @@ export default withDispatch( ( dispatch, ownProps, registry ) => ( {
 		setAttributes( { columns } );
 
 		let innerBlocks = getBlocks( clientId );
-		if ( ! hasExplicitColumnWidths( innerBlocks ) ) {
-			return;
-		}
 
 		// Redistribute available width for existing inner blocks.
 		const { columns: previousColumns } = attributes;

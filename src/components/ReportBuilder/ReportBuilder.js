@@ -8,6 +8,7 @@ import {
 	BlockList,
 	BlockNavigationDropdown,
 	Inserter,
+	InspectorAdvancedControls,
 	NavigableToolbar,
 	ObserveTyping,
 	WritingFlow,
@@ -104,7 +105,7 @@ class AjfReportBuilderCls extends React.Component {
 									<EditorHistoryRedo />
 									<BlockNavigationDropdown />
 								</NavigableToolbar>
-								<div class="builder-content-wrapper">
+								<div className="builder-content-wrapper">
 									<div
 										className="builder-content"
 										role="region"
@@ -119,7 +120,9 @@ class AjfReportBuilderCls extends React.Component {
 										</WritingFlow>
 									</div>
 									<div className="sidebar">
-										<BlockInspector />
+										<BlockInspector>
+											<InspectorAdvancedControls />
+										</BlockInspector>
 									</div>
 								</div>
 							</div>
