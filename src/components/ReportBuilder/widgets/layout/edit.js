@@ -105,7 +105,7 @@ export default withDispatch( ( dispatch, ownProps, registry ) => ( {
 		if ( isAddingColumn ) {
 			innerBlocks = [
 				...innerBlocks,
-				createBlock( 'core/column', { } ),
+				createBlock( 'ajf/column', { } ),
 			];
 		} else {
 			// The removed column will be the last of the inner blocks.

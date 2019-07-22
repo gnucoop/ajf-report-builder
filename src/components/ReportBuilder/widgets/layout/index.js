@@ -12,6 +12,7 @@ export const settings = {
 	icon,
 	description: 'Layout',
 	supports: {
+		html: false,
 		customClassName: false,
 	},
 	edit,

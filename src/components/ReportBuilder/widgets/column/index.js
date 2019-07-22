@@ -17,7 +17,7 @@ export { metadata, name };
 
 export const settings = {
 	title: __( 'Column' ),
-	parent: [ 'core/columns' ],
+	parent: [ 'ajf/layout' ],
 	icon,
 	description: __( 'A single column within a layout block.' ),
 	supports: {
