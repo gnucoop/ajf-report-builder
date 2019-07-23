@@ -9,6 +9,10 @@
 		height: 100%;
 		padding: 0;
 
+		.components-panel__body-title {
+			margin: 0;
+		}
+
 		.components-drop-zone__provider {
 			height: 100%;
 
@@ -17,7 +21,7 @@
 
 				.block-editor-block-inspector__card {
 					margin: 0;
-					padding: 10px 5px;
+					padding: 10px 0;
 				}
 				.block-editor-block-list__insertion-point {
 					display: none;
@@ -58,7 +62,7 @@
 					.builder-content {
 						position: relative;
 						height: 100%;
-						padding-right: 250px;
+						padding-right: 264px; // 250 sidebar + 14 margin
 
 						.block-editor-button-block-appender {
 							padding: 5px;
